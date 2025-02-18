@@ -38,11 +38,13 @@
 
  3. How to unlock seat if booking failed?
 - option 1
+  
 set ticket status as booked, 
 run cron every minute, which un-books ticket if transaction failed
 why bad? cron takes 10mins to scan table, can face issues
 
 - option2
+  
 mark seats as booked using Redis TTL
 get available seats from db, exclude seats from Redis
 
