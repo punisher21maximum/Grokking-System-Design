@@ -48,6 +48,31 @@ why bad? cron takes 10mins to scan table, can face issues
 mark seats as booked using Redis TTL
 get available seats from db, exclude seats from Redis
 
- 4. Handle Surge]
-Virtual waiting Queue
+ 4. Handle Surge
+- Virtual waiting Queue
 
+## Drawing
+<img width="787" alt="image" src="https://github.com/user-attachments/assets/50761706-8882-4f32-abb8-6c9122e54684" />
+
+## APIs
+
+## Tables
+Event
+- id
+- date
+- venue_id
+
+Venue
+- id
+- address
+- seating_capacity
+- seat_map_id
+
+Ticket
+- id
+- user_id
+- event_id
+- status
+- price
+
+Performer
