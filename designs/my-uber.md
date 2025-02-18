@@ -54,9 +54,6 @@ response = {
 - POST /ride/request_booking/
 - PUT /ride/respond_booking_request/ # used by driver
 
-## Drawing
-<img width="998" alt="image" src="https://github.com/user-attachments/assets/52f54b56-5fed-44b6-9b84-df29a3596d6f" />
-
 ## Storage / Tables
 
 1. Ride
@@ -71,5 +68,38 @@ response = {
 - id
 - status
 
+## Drawing
+<img width="998" alt="image" src="https://github.com/user-attachments/assets/52f54b56-5fed-44b6-9b84-df29a3596d6f" />
+
+## Deep Dive
+### Storing location of Drivers
+1. Option 1, Postgres, Quadtree
+- postgres DB, 
+postgis extension
+geography datatype = quadtree
+
+leaf nodes have actual lat long
+
+other nodes are bounding boxes
+
+each internal nodes has min max
+
+min = min_lat_value, min_long_value
+max = max_lat_value, max_long_value
+
+drawback
+- to avoid getting a skewed tree, we rebalance 
+and that can take sometime O(logN) to O(N)
+
+<img width="888" alt="image" src="https://github.com/user-attachments/assets/3f279e9b-79dc-43c4-93c7-78802294917e" />
 
 
+2. Option 2, Geohashing
+Option 2 : Geohashing
+Plane is divided recursively into N equal parts
+
+Leaf node has actual location
+
+Implement using Redis, with sortedsets, and use binarysearch
+
+<img width="417" alt="image" src="https://github.com/user-attachments/assets/8f74a1dc-d6dd-4617-bec1-b7cb097ec620" />
