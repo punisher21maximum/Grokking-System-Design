@@ -20,3 +20,38 @@
 
 ### Update location API
 - 50k send update every 5 second ~= 10k RPS
+
+### Storage
+User data
+- 100M user and increase by 1M every month
+- 1kb for each month
+- 100GB
+Rides data
+- 5L bookings daily
+- Each booking like 1kb
+- 0.5GB
+
+### Cache
+- 20% of db, to server 80% of the request
+- Cache daily booking data = 0.5GB + 20% of user data = 20GB
+
+## API
+- GET /ride/get_estimate/
+body = {
+    "request_data": {
+        "src":
+        "dest":
+         ...more data...
+    }
+}
+response = {
+    "estimate": {
+        "Uber XL": {
+            ...data...
+        }
+    }
+}
+- POST /ride/request_booking/
+- PUT /ride/respond_booking_request/ # used by driver
+
+
