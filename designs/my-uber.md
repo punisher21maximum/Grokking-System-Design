@@ -54,4 +54,22 @@ response = {
 - POST /ride/request_booking/
 - PUT /ride/respond_booking_request/ # used by driver
 
+## Drawing
+<img width="998" alt="image" src="https://github.com/user-attachments/assets/52f54b56-5fed-44b6-9b84-df29a3596d6f" />
+
+## Storage / Tables
+
+1. Ride
+- id
+- driver_id 
+- src
+- dest
+- eta
+- status
+
+2. Driver
+- id
+- status
+
+
 
