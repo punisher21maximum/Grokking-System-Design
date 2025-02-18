@@ -56,6 +56,9 @@ get available seats from db, exclude seats from Redis
 
 ## APIs
 
+1. event/search?event_name="..."
+2. booking/
+
 ## Tables
 Event
 - id
